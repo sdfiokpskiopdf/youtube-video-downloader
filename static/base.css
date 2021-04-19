@@ -63,7 +63,8 @@ main {
 }
 
 .link-text {
-  display: none;
+  transition: opacity 200ms ease-out;
+  opacity: 0;
   margin-left: 1rem;
 }
 
@@ -81,6 +82,10 @@ main {
   transition: var(--transition-speed);
 }
 
+.logo {
+  width: 100%;
+}
+
 .logo .nav-link{
   font-weight: bold;
   text-transform: uppercase;
@@ -88,18 +93,19 @@ main {
   text-align: center;
   color: var(--main-text-color);
   background: var(--red);
-  font-size: 0.5rem;
+  font-size: 1.5rem;
   letter-spacing: 0.3ch;
-  width: 100%;
   filter: grayscale(0%) opacity(1);
 }
 
 .logo svg {
+  position: absolute;
   transform: rotate(0deg);
   transition: transform 200ms;
 }
 
 .navbar:hover .logo svg {
+  position: static;
   transform: rotate(-360deg)
 }
 
@@ -138,6 +144,6 @@ main {
   }
 
   .navbar:hover .link-text {
-    display: block;
+    opacity: 1;
   }
 }

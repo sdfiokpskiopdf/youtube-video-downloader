@@ -26,6 +26,14 @@ def home():
         pass
     else:
         return render_template("index.html")
+        
+@app.route("/about")
+def about():
+    return "about"
+
+@app.route("/contact")
+def contact():
+    return "contact"
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
