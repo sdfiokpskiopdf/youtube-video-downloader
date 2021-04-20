@@ -23,7 +23,17 @@ def dated_url_for(endpoint, **values):
 @app.route("/", methods=["POST", "GET"])
 def home():
     if request.method == "POST":
-        pass
+        url = request.form["ur"]
+        downloader.set_url(url)
+        videos = downloader.get_videos()
+        audios = downloader.get_audios()
+        audiovideos = downloader.get_audio_videos()
+
+        print(videos)
+        print(audios)
+        print(audiovideos)
+
+        return render_template("index.html")
     else:
         return render_template("index.html")
         
