@@ -16,7 +16,7 @@
     color: var(--secondary-text-color);
 }
 
-.center-container form {
+.center-container .form {
     margin-top: 2rem;
     background-color: var(--secondary-bg-color);
     padding: 1.5rem 2rem;
@@ -29,7 +29,7 @@
 }
 
 .center-container form input[type=search] {
-    padding: 1.5rem 2rem;
+    padding: 1.5% 2%;
     box-sizing: border-box;
     border: 1px solid var(--main-bg-color);
     background-color: var(--search-color);
@@ -45,8 +45,8 @@
     color: var(--secondary-text-color);
 }
 
-.center-container form button {
-    padding: 1.5rem 2rem;
+.center-container form .search_button {
+    padding: 1.5% 2%;
     flex: 1;
     background-color: var(--search-color-2);
     border: 1px solid var(--main-bg-color);
@@ -54,6 +54,114 @@
     font-size: 1.1rem;
 }
 
-.center-container form button:hover {
+.center-container form .search_button:hover {
     color: var(--main-text-color);
+}
+
+.result_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    gap: 2%;
+}
+
+.downloads {
+    display: grid;
+    grid-template-areas: "video videoaudio audio";
+    height: 100%;
+    grid-template-rows: auto auto auto;
+    margin-top: 2%;
+    flex: 3;
+}
+
+.video {
+    grid-area: video;
+}
+
+.videoaudio {
+    grid-area: videoaudio;
+}
+
+.audio {
+    grid-area: audio;
+}
+
+.downloads h2 {
+    margin-bottom: 5%;
+    color: var(--secondary-text-color)
+}
+
+.result_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.result_box p {
+    margin-right: 2%;
+    color: var(--secondary-text-color);
+}
+
+.result_box button {
+    padding: 10% 20%;
+    text-transform: uppercase;
+    color: var(--main-text-color);
+    background-color: var(--red);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.main_text {
+    color: var(--main-text-color) !important;
+}
+
+.videoaudio p {
+    color: var(--main-text-color) !important;
+}
+
+.information {
+    margin-top: 2%;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.information h2 {
+    margin-right: auto;
+}
+
+.information img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-right: auto;
+    margin-bottom: 2%;
+}
+
+.information p {
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 1370px) {
+    .downloads {
+        grid-template-areas: "videoaudio"
+                             "video" 
+                             "audio";
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .information {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .downloads {
+        margin-left: auto;
+    }
 }

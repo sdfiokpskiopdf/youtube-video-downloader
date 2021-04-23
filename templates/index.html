@@ -8,8 +8,52 @@
     <h1 class="title">YT Buddy</h1>
     <p class="subtitle">Convert and download YouTube video and audio online, for <b>free</b>.</p>
     <form class="form" action="#" method="POST">
-        <input type="search" placeholder="Paste youtube link here" name="ur" required>
-        <button type="submit">Convert</button>
+        <input type="search" placeholder="Paste youtube link here" name="ur" value="{{ url }}" required>
+        <button class="search_button" type="submit">Convert</button>
     </form>
+    {% if audiovideos is defined %}
+    <div class="result_container">
+        <div class="information">
+            <h2>{{ title }}</h2>
+            <img src="{{ thumbnail }}">
+            <p>Views: <b>{{ views }}</b> </p>
+            <p>Duration: <b>{{ duration }}</b></p>
+        </div>
+        <div class="downloads">
+            <div class="video">
+            <h2>Video Only</h2>
+            {% for video in videos %}
+                <div class="result_box">
+                    <p class="text">{{ video.resolution }}, {{ video.fps }} fps</p>
+                    <form action="#" method="POST">
+                        <button type="submit" name="video_button" value="{{ video.resolution }},{{ video.fps }}">Download</button>
+                    </form>
+                </div>
+            {% endfor %}
+            </div>
+            <div class="videoaudio">
+            <h2 class="main_text">Video & Audio (<b>Recommended</b>)</h2>
+            {% for av in audiovideos %}
+                <div class="result_box">
+                    <p class="text">{{ av.resolution }}, {{ av.fps }} fps, {{ av.abr }}</p>
+                    <form action="" method="POST">
+                        <button type="submit" name="audiovideo_button" value="{{ av.resolution }},{{ av.fps }},{{ av.abr }}"><b>Download</b></button>
+                    </form>
+                </div>
+            {% endfor %}
+            </div>
+            <div class="audio">
+            <h2>Audio Only</h2>
+            {% for audio in audios %}
+                <div class="result_box">
+                    <p class="text">{{ audio.abr }}</p>
+                    <form action="#" method="POST">
+                        <button type="submit" name="audio_button" value="{{ audio.abr }}">Download</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
